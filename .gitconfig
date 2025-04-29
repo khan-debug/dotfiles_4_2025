@@ -1,6 +1,6 @@
 [user]
 	name = khan-debug
-	email = aarijkhan@proton.me
+	email = 160346976+khan-debug@users.noreply.github.co
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f
