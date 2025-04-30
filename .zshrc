@@ -153,3 +153,5 @@ nix() {
 export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 
 
+
+if [ -e /home/aarijkhan/.nix-profile/etc/profile.d/nix.sh ]; then . /home/aarijkhan/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
