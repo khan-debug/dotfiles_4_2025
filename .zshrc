@@ -115,6 +115,8 @@ source $ZSH/oh-my-zsh.sh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 
+
+#easy nix alias
 nix() {
     case "$1" in
         install)
@@ -150,8 +152,5 @@ nix() {
 }
 
 
+
 export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
-
-
-
-if [ -e /home/aarijkhan/.nix-profile/etc/profile.d/nix.sh ]; then . /home/aarijkhan/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
