@@ -1,30 +1,54 @@
-#! bin/bash
+#!/bin/bash
 
-echo"removing already existing dotfiles"
-rm -f .gitconfig
-rm -f .vimrc
-rm -f .zshrc
+# Function to display loading animation
+loading() {
+    echo -n "$1"
+    while true; do
+        for i in / - \\ '|'; do
+            echo -ne "\r$1 $i"
+            sleep 0.2
+        done
+    done
+}
 
-echo"creating dotfiles...."
-ln -s ~/dotfiles_4_2025/.gitconfig .gitconfig
-ln -s ~/dotfiles_4_2025/.vimrc .vimrc
-ln -s ~/dotfiles_4_2025/.zshrc .zshrc
+# Start Loading Animation
+loading "Setting up your environment..."
 
-echo "installing oh my zsh..... "
+# Remove existing dotfiles
+echo -e "\nRemoving existing dotfiles..."
+rm -f ~/.gitconfig ~/.vimrc ~/.zshrc
+
+# Link new dotfiles
+echo -e "\nCreating new dotfiles..."
+ln -s ~/dotfiles_4_2025/.gitconfig ~/.gitconfig
+ln -s ~/dotfiles_4_2025/.vimrc ~/.vimrc
+ln -s ~/dotfiles_4_2025/.zshrc ~/.zshrc
+
+# Installing Oh My Zsh
+echo -e "\nInstalling Oh My Zsh..."
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-echo "installing powerlevel 10k....."
+# Installing Powerlevel10k theme
+echo -e "\nInstalling Powerlevel10k..."
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
 
-echo "installing autosuggestion and sytax highlighting for zsh....."
+# Installing Autosuggestions and Syntax Highlighting for Zsh
+echo -e "\nInstalling Zsh Autosuggestions and Syntax Highlighting..."
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
+# Stop Loading animation and display status
+kill $!
 
-echo "installing nix env"
-curl -L https://nixos.org/nix/install | sh
-echo "setting nix environment"
-  . /home/aarijkhan/.nix-profile/etc/profile.d/nix.sh
+# Installing Homebrew
+echo -e "\nInstalling Homebrew..."
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# Add Homebrew to path
+echo -e "\nAdding Homebrew to PATH..."
+echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> ~/.zshrc
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 
-echo "!==Success==!"
+# Success message
+echo -e "\n!== Success! All setup completed. You can now use Homebrew and Oh My Zsh with Powerlevel10k! ==!"
