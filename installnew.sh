@@ -2,11 +2,12 @@
 
 # Remove existing dotfiles
 echo -e "\nRemoving existing dotfiles..."
-rm -f ~/.gitconfig ~/.vimrc ~/.zshrc
+rm -f ~/.gitconfig ~/.vimrc ~/.zshrc ~/.p10k.zsh
 
 # Link new dotfiles
 echo -e "\nCreating new dotfiles..."
 ln -s ~/dotfiles_4_2025/.gitconfig ~/.gitconfig
+ln -s ~/dotfiles_4_2025/.p10k.zsh ~/.p10k.zsh
 ln -s ~/dotfiles_4_2025/.vimrc ~/.vimrc
 ln -s ~/dotfiles_4_2025/.fonts ~/.fonts
 
@@ -36,6 +37,15 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 rm -f ~/.zshrc
 ln -s ~/dotfiles_4_2025/.zshrc ~/.zshrc 
+
+echo -e "configuring tlp"
+sudo systemctl disable --now tuned
+sudo systemctl mask tuned
+sudo dnf install tlp tlp-rdw
+sudo systemctl enable tlp.service
+sudo tlp start
+sudo ln -s ~/dotfiles_4_2025/tlp.conf /etc/tlp.conf
+
 
 # Success message
 echo -e "\n!== Success! All setup completed. You can now use Homebrew and Oh My Zsh with Powerlevel10k! ==!"

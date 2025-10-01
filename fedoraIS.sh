@@ -8,6 +8,8 @@ sudo dnf install rpmfusion-\*-appstream-data -y
 
 sudo dnf group install multimedia -y
 
+
 sudo ln -s ~/dotfiles_4_2025/dnf.conf /etc/dnf/dnf.conf  
+
 
 sudo dnf update -y
