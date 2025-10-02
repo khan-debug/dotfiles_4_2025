@@ -154,3 +154,4 @@ nix() {
 
 
 export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+export PATH=$HOME/.local/bin:$PATH
