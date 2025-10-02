@@ -12,5 +12,7 @@ sudo dnf group install multimedia -y
 sudo rm -rf /etc/dnf/dnf.conf && sudo ln -s ~/dotfiles_4_2025/dnf.conf /etc/dnf/dnf.conf  
 
 
+sudo dnf copr enable kylegospo/preload -y && sudo dnf install preload -y && sudo systemctl enable --now preload
+
 
 sudo dnf update -y
