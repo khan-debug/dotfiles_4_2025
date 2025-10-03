@@ -38,14 +38,5 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 rm -f ~/.zshrc
 ln -s ~/dotfiles_4_2025/.zshrc ~/.zshrc 
 
-echo -e "configuring tlp"
-sudo systemctl disable --now tuned
-sudo systemctl mask tuned
-sudo dnf install tlp tlp-rdw
-sudo systemctl enable tlp.service
-sudo tlp start
-sudo ln -s ~/dotfiles_4_2025/tlp.conf /etc/tlp.conf
-
-
 # Success message
 echo -e "\n!== Success! All setup completed. You can now use Homebrew and Oh My Zsh with Powerlevel10k! ==!"
