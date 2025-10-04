@@ -2,7 +2,7 @@
 
 # Remove existing dotfiles
 echo -e "\nRemoving existing dotfiles..."
-rm -f ~/.gitconfig ~/.vimrc ~/.zshrc ~/.p10k.zsh
+rm -f ~/.gitconfig ~/.vimrc ~/.zshrc ~/.p10k.zsh ~/.zshrc
 
 # Link new dotfiles
 echo -e "\nCreating new dotfiles..."
@@ -10,7 +10,7 @@ ln -s ~/dotfiles_4_2025/.gitconfig ~/.gitconfig
 ln -s ~/dotfiles_4_2025/.p10k.zsh ~/.p10k.zsh
 ln -s ~/dotfiles_4_2025/.vimrc ~/.vimrc
 ln -s ~/dotfiles_4_2025/.fonts ~/.fonts
-
+ln -s ~/dotfiles_4_2025/.zshrc ~/.zshrc 
 
 # Installing Oh My Zsh
 echo -e "\nInstalling Oh My Zsh..."
@@ -35,8 +35,12 @@ echo -e "\nAdding Homebrew to PATH..."
 echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> ~/.zshrc
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-rm -f ~/.zshrc
-ln -s ~/dotfiles_4_2025/.zshrc ~/.zshrc 
+echo -e "Installing find it faster required dependencies"
+brew install fzf
+brew install rg
+brew install bat
+
+
 
 # Success message
 echo -e "\n!== Success! All setup completed. You can now use Homebrew and Oh My Zsh with Powerlevel10k! ==!"
