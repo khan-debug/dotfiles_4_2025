@@ -32,13 +32,20 @@ echo -e "\nInstalling Homebrew..."
 
 # Add Homebrew to path
 echo -e "\nAdding Homebrew to PATH..."
-echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> ~/.zshrc
+echo >> /home/aarij/.bashrc
+echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/aarij/.bashrc
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+sudo dnf group install development-tools
+
+
 
 echo -e "Installing find it faster required dependencies"
 brew install fzf
 brew install rg
 brew install bat
+brew install gcc
+
+rm -rf .vscode-oss && ln -s ~/dotfiles_4_2025/.vscode-oss
 
 
 

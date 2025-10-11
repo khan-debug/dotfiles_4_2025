@@ -155,3 +155,5 @@ nix() {
 
 export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 export PATH=$HOME/.local/bin:$PATH
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
