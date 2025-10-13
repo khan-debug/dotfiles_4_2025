@@ -11,11 +11,6 @@ echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/aarij/.ba
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 
-
-sudo dnf group install development-tools
-
-
-
 echo -e "Installing find it faster required dependencies"
 brew install fzf
 brew install rg
