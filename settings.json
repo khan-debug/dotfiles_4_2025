@@ -1,0 +1,10 @@
+{
+    "workbench.activityBar.location": "top",
+    "workbench.colorTheme": "One Dark Pro",
+    "workbench.iconTheme": "material-icon-theme",
+    "window.titleBarStyle": "native",
+    "window.commandCenter": false,
+    "workbench.layoutControl.enabled": false,
+    "window.customTitleBarVisibility": "never",
+    "git.enableSmartCommit": true
+}

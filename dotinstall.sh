@@ -13,4 +13,4 @@ ln -s ~/dotfiles/.zshrc ~/.zshrc
 
 
 rm -rf ~/.vscode-oss && ln -s ~/dotfiles/.vscode-oss ~/.vscode-oss
- 
+ln -s ~/dotfiles/settings.json /home/aarij/.config/VSCodium/User/settings.json
